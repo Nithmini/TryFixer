@@ -1,0 +1,62 @@
+Our product categories
+    Spices
+        - Black Pepper Powder
+        - Meat Curry Mix
+        - Chili Powder
+        - Turmeric Powder
+        - Cinamon
+    Flour
+    Drinks
+        - Tea
+        - Cofee
+        - King Coconut Drink
+    Foods
+        - Malu Ambul
+    Rice
+        - Red Rice - Ratu Kekulu
+        - Samba Rice
+        - Super Keeri Samba 5kg
+    Snacks
+        - Cassava Chips
+    Dehydrating Food
+        - PANDAN LEAVES (RAMPE)
+        - DEHYDRATED PINEAPPLE
+        - DEHYDRATED MANGO
+    Other
+        - Kithul Trickle
+        - Kithul Jaggery
+
+
+
+Home Page
+    - Slider
+    - Welcome message
+    - Brief introduction to  company
+    - Slideshow or images showcasing product categories
+    - Call-to-action buttons 
+
+About Us
+    - Company history 
+    - Vision & mission
+    - Information about the products you specialize in exporting
+    - Your commitment to quality and sustainability
+    - Why Choose Us
+
+Products
+    - Categories of products 
+        - Products
+    - Subcategories or individual product listings within each category
+    - High-quality images and descriptions for each product
+    - Wholesale and retail pricing options
+
+Services:
+    - Wholesale and retail options
+    - Bulk ordering information
+    - Packaging and shipping details
+
+Blog
+Contact Us
+    - Contact form for inquiries
+    - Email, phone number, and physical address
+    - Social media links
+    - FAQ
