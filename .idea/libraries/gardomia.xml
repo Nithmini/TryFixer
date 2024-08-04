@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gardomia">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/template/gardomia.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

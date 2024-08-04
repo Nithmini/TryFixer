@@ -11092,7 +11092,8 @@ only screen and (min-width: 576px) and (max-width: 767px),
     gap: 16px;
 }
 
-.cart-area .table-content table {
+
+/* .cart-area .table-content table {
     background: #ffffff;
     border-color: #edeef2;
     border-radius: 0;
@@ -11305,6 +11306,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
     height: 50px;
     line-height: 48px;
 }
+ */
 
 .product-quantity a {
     white-space: nowrap;
@@ -11938,13 +11940,14 @@ p.checkout-coupon input[type=text]:focus {
     right: auto;
 }
 
-.sidebar-cart {
+
+/* .sidebar-cart {
     right: -100%;
 }
 
 .sidebar-cart.cart-open {
     right: 0;
-}
+} */
 
 .sidebar-wishlist {
     right: -100%;
@@ -15915,4 +15918,78 @@ only screen and (min-width: 576px) and (max-width: 767px),
 
 
 /*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
 /*# sourceMappingURL=style.css.map */
