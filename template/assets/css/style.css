@@ -13,7 +13,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: normal;
-    color: var(--clr-common-text);
+    color: b;
     line-height: 26px;
 }
 
@@ -14691,7 +14691,6 @@ footer {
 }
 
 .footer-area {
-    background: var(--clr-bg-1);
     position: relative;
     z-index: 2;
     overflow-x: clip;
@@ -14699,9 +14698,9 @@ footer {
 }
 
 .footer-bg-shape {
-    position: absolute;
     bottom: -25px;
     z-index: -1;
+    position: relative;
 }
 
 .footer-widget-title h4 {
@@ -15027,6 +15026,8 @@ only screen and (min-width: 576px) and (max-width: 767px),
 (max-width: 575px) {
     .footer-logo {
         text-align: center;
+        width: 50px;
+        hight: 20p
     }
 }
 
@@ -15895,4 +15896,23 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
 /*# sourceMappingURL=style.css.map */
