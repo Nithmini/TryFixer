@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #90EE90;
+            --secondary-color: #32CD32;
+            --text-color: #333;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+        }
+        .sidebar {
+            background-color: var(--primary-color);
+            height: 100vh;
+            padding-top: 20px;
+        }
+        .sidebar .nav-link {
+            color: var(--text-color);
+        }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: var(--secondary-color);
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .btn-custom {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #228B22;
+            border-color: #228B22;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <h5 class="px-3 mt-4 mb-1 text-muted">Organize</h5>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Service Requests
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+
+                    <hr>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Requests Dashboard</h1>
+                </div>
+
+                <!-- Search and Publish button -->
+                <div class="row mb-3">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" placeholder="Search requests...">
+                    </div>
+                    <div class="col-md-4">
+                        <a href="publish-request.html" class="btn btn-custom w-100">Publish Request</a>
+                    </div>
+                </div>
+
+                <!-- Request cards -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Request #1</h5>
+                                <p class="card-text">Description of request #1</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Request #2</h5>
+                                <p class="card-text">Description of request #2</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Request #3</h5>
+                                <p class="card-text">Description of request #3</p>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location">
+                        </div>
+                        <div class="mb-3">
+                            <label for="images" class="form-label">Upload Images</label>
+                            <input type="file" class="form-control" id="images" multiple>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-custom">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

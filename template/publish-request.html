@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish Request</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-success {
+            background-color: #66bb6a;
+            border-color: #66bb6a;
+        }
+        .btn-success:hover {
+            background-color: #4caf50;
+            border-color: #4caf50;
+        }
+        .modal-content {
+            background-color: #e8f5e9;
+        }
+        .service-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .service-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .service-option.selected {
+            border: 2px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4"><i class="bi bi-plus-circle-fill"></i> Publish a Request</h1>
+        
+        <!-- Service Options -->
+        <div id="serviceOptions" class="row mb-4">
+            <h2 class="mb-3">Select a Service</h2>
+            <div class="col-md-4 mb-3">
+                <div class="card service-option" data-service="plumbing">
+                    <img src="https://via.placeholder.com/300x200.png?text=Plumbing" class="card-img-top" alt="Plumbing">
+                    <div class="card-body">
+                        <h5 class="card-title">Plumbing</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card service-option" data-service="electrical">
+                    <img src="https://via.placeholder.com/300x200.png?text=Electrical" class="card-img-top" alt="Electrical">
+                    <div class="card-body">
+                        <h5 class="card-title">Electrical</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card service-option" data-service="carpentry">
+                    <img src="https://via.placeholder.com/300x200.png?text=Carpentry" class="card-img-top" alt="Carpentry">
+                    <div class="card-body">
+                        <h5 class="card-title">Carpentry</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Service Form -->
+        <form id="homeServiceForm" style="display: none;">
+            <h2 class="mb-3">Home Service Request</h2>
+            <div class="mb-3">
+                <label for="itemType" class="form-label">Item Type</label>
+                <select class="form-select" id="itemType" required>
+                    <option value="">Select an item type</option>
+                    <option value="sink">Sink</option>
+                    <option value="toilet">Toilet</option>
+                    <option value="shower">Shower</option>
+                    <option value="faucet">Faucet</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Images</label>
+                <div class="row">
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="frontView" accept="image/*">
+                        <small class="form-text text-muted">Front View</small>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="backView" accept="image/*">
+                        <small class="form-text text-muted">Back View</small>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="sideViewRight" accept="image/*">
+                        <small class="form-text text-muted">Side View - Right</small>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="sideViewLeft" accept="image/*">
+                        <small class="form-text text-muted">Side View - Left</small>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="topView" accept="image/*">
+                        <small class="form-text text-muted">Top View</small>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <input type="file" class="form-control" id="bottomView" accept="image/*">
+                        <small class="form-text text-muted">Bottom View</small>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="remark" class="form-label">Remark</label>
+                <textarea class="form-control" id="remark" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Request</button>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Submit Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://media.giphy.com/media/YThEwVTNDlz7S/giphy.gif" alt="Success" class="img-fluid mb-3">
+                    <h4>Successfully submitted!</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="viewRequestBtn">View Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceOptions = document.querySelectorAll('.service-option');
+            const homeServiceForm = document.getElementById('homeServiceForm');
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            const viewRequestBtn = document.getElementById('viewRequestBtn');
+
+            serviceOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    serviceOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    homeServiceForm.style.display = 'block';
+                    homeServiceForm.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            homeServiceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                successModal.show();
+            });
+
+            viewRequestBtn.addEventListener('click', function() {
+                window.location.href = 'requests.html';
+            });
+        });
+    </script>
+</body>
+</html>

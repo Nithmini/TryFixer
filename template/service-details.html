@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            color: #333;
+        }
+        .sidebar {
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .district-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .district-list li {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #a5d6a7;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .district-list li:hover {
+            background-color: #81c784;
+        }
+        .city-list {
+            display: none;
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .city-list li {
+            cursor: pointer;
+            padding: 5px;
+            margin: 2px 0;
+            background-color: #c8e6c9;
+            border-radius: 3px;
+        }
+        .city-list li:hover {
+            background-color: #a5d6a7;
+        }
+        .blog-post {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .blog-post:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .service-category {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #c8e6c9;
+            border-radius: 20px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .service-category:hover {
+            background-color: #a5d6a7;
+        }
+        .service-category.active {
+            background-color: #66bb6a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <h2 class="mb-4"><i class="bi bi-gear-fill"></i> Service Details</h2>
+                <button id="selectLocation" class="btn btn-success mb-4"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
+                
+                <h4 class="mb-3">Service Categories</h4>
+                <div id="serviceCategories">
+                    <span class="service-category"><i class="bi bi-tools"></i> Plumbing</span>
+                    <span class="service-category"><i class="bi bi-house-door"></i> Kitchen Appliances</span>
+                    <span class="service-category"><i class="bi bi-ladder"></i> Roofing</span>
+                    <span class="service-category"><i class="bi bi-snow"></i> A/C Repairing</span>
+                    <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator Repairing</span>
+                </div>
+            </div>
+            <div class="col-md-9 p-4">
+                <h1 class="mb-4">Plumber Houses Blog</h1>
+                <div id="blogPosts">
+                    <!-- Blog posts will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="bi bi-pin-map-fill"></i> Select Location</h2>
+            <ul id="districtList" class="district-list">
+                <!-- Districts will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ad Modal -->
+    <div id="adModal" class="modal">
+        <div class="modal-content">
+            <h2>Special Offer!</h2>
+            <p>Check out our amazing deals on plumbing services!</p>
+            <button id="closeAdBtn" class="btn btn-success" disabled>Close (3)</button>
+        </div>
+    </div>
+
+    <!-- Action Modal -->
+    <div id="actionModal" class="modal">
+        <div class="modal-content">
+            <h2>What would you like to do?</h2>
+            <button id="viewProvidersBtn" class="btn btn-success mb-2">View Service Provider List</button>
+            <button id="publishRequestBtn" class="btn btn-outline-success mb-2">Publish a Request</button>
+            <button id="backToLocationBtn" class="btn btn-outline-secondary">Back to Location Selection</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const locationData = {
+            'Colombo': ['Dehiwala', 'Kolonnawa', 'Kotte', 'Maharagama', 'Moratuwa'],
+            'Gampaha': ['Negombo', 'Kadawatha', 'Kelaniya', 'Wattala', 'Ja-Ela'],
+            'Kandy': ['Peradeniya', 'Katugastota', 'Gampola', 'Nawalapitiya', 'Pilimatalawa']
+        };
+
+        const locationModal = document.getElementById('locationModal');
+        const adModal = document.getElementById('adModal');
+        const actionModal = document.getElementById('actionModal');
+        const selectLocationBtn = document.getElementById('selectLocation');
+        const closeAdBtn = document.getElementById('closeAdBtn');
+        const viewProvidersBtn = document.getElementById('viewProvidersBtn');
+        const publishRequestBtn = document.getElementById('publishRequestBtn');
+        const backToLocationBtn = document.getElementById('backToLocationBtn');
+        const districtList = document.getElementById('districtList');
+
+        selectLocationBtn.onclick = function() {
+            locationModal.style.display = 'block';
+        }
+
+        function closeLocationModal() {
+            locationModal.style.display = 'none';
+            showAdModal();
+        }
+
+        function showAdModal() {
+            adModal.style.display = 'block';
+            let secondsLeft = 3;
+            closeAdBtn.textContent = `Close (${secondsLeft})`;
+            const timer = setInterval(() => {
+                secondsLeft--;
+                closeAdBtn.textContent = `Close (${secondsLeft})`;
+                if (secondsLeft === 0) {
+                    clearInterval(timer);
+                    closeAdBtn.disabled = false;
+                    closeAdBtn.textContent = 'Close';
+                }
+            }, 1000);
+        }
+
+        closeAdBtn.onclick = function() {
+            adModal.style.display = 'none';
+            actionModal.style.display = 'block';
+        }
+
+        viewProvidersBtn.onclick = function() {
+            window.location.href = 'service-providers.html';
+        }
+
+        publishRequestBtn.onclick = function() {
+            window.location.href = 'publish-request.html';
+        }
+
+        backToLocationBtn.onclick = function() {
+            actionModal.style.display = 'none';
+            locationModal.style.display = 'block';
+        }
+
+        function createDistrictList() {
+            districtList.innerHTML = '';
+            for (let district in locationData) {
+                let li = document.createElement('li');
+                li.textContent = district;
+                li.onclick = function() {
+                    this.classList.toggle('active');
+                    let cityList = this.querySelector('.city-list');
+                    if (!cityList) {
+                        cityList = document.createElement('ul');
+                        cityList.className = 'city-list';
+                        locationData[district].forEach(city => {
+                            let cityLi = document.createElement('li');
+                            cityLi.textContent = city;
+                            cityLi.onclick = function(e) {
+                                e.stopPropagation();
+                                closeLocationModal();
+                            };
+                            cityList.appendChild(cityLi);
+                        });
+                        this.appendChild(cityList);
+                    }
+                    cityList.style.display = cityList.style.display === 'none' ? 'block' : 'none';
+                };
+                districtList.appendChild(li);
+            }
+        }
+
+        createDistrictList();
+
+        const serviceCategories = document.querySelectorAll('.service-category');
+        serviceCategories.forEach(category => {
+            category.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        const blogPosts = [
+            {
+                title: "5 Essential Tools Every Plumber Should Have",
+                content: "Every professional plumber needs a reliable set of tools. In this post, we discuss the 5 must-have tools for any plumbing job...",
+                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
+            },
+            {
+                title: "How to Unclog a Drain: DIY Plumbing Tips",
+                content: "Dealing with a clogged drain? Before calling a professional, try these simple DIY methods to clear your pipes...",
+                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
+            },
+            {
+                title: "The Importance of Regular Plumbing Maintenance",
+                content: "Prevent costly repairs and extend the life of your plumbing system with these essential maintenance tips...",
+                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
+            }
+        ];
+
+        function createBlogPosts() {
+            const blogPostsContainer = document.getElementById('blogPosts');
+            blogPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'blog-post';
+                postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <img src="${post.image}" alt="${post.title}" class="img-fluid mb-3">
+                    <p>${post.content}</p>
+                    <a href="#" class="btn btn-outline-success">Read More</a>
+                `;
+                blogPostsContainer.appendChild(postElement);
+            });
+        }
+
+        createBlogPosts();
+    </script>
+</body>
+</html>
