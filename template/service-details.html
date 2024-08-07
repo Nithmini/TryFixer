@@ -10,12 +10,46 @@
         body {
             background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #66bb6a;
+            padding: 15px 0;
+        }
+        .logo-bl img {
+            max-height: 50px;
+        }
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .main-content {
+            flex-grow: 1;
         }
         .sidebar {
-            height: 100vh;
+            height: 274vh;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background-color: #66bb6a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
         }
         .modal {
             display: none;
@@ -112,29 +146,78 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 sidebar">
-                <h2 class="mb-4"><i class="bi bi-gear-fill"></i> Service Details</h2>
-                <button id="selectLocation" class="btn btn-success mb-4"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
-                
-                <h4 class="mb-3">Service Categories</h4>
-                <div id="serviceCategories">
-                    <span class="service-category"><i class="bi bi-tools"></i> Plumbing</span>
-                    <span class="service-category"><i class="bi bi-house-door"></i> Kitchen Appliances</span>
-                    <span class="service-category"><i class="bi bi-ladder"></i> Roofing</span>
-                    <span class="service-category"><i class="bi bi-snow"></i> A/C Repairing</span>
-                    <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator Repairing</span>
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <a href="index.html" class="logo-bl"><img src="assets/img/logo/11.png" alt="logo-img"></a>
+                </div>
+                <div class="col-md-9">
+                    <nav>
+                        <ul class="nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="blog.html">Profile</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="col-md-9 p-4">
-                <h1 class="mb-4">Plumber Houses Blog</h1>
-                <div id="blogPosts">
-                    <!-- Blog posts will be dynamically added here -->
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 sidebar">
+                    <h2 class="mb-4"><i class="bi bi-gear-fill"></i> Service Details</h2>
+                    <button id="selectLocation" class="btn btn-success mb-4"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
+                    
+                    <h4 class="mb-3">Service Categories</h4>
+                    <div id="serviceCategories">
+                        <span class="service-category"><i class="bi bi-tools"></i> Plumbing</span>
+                        <span class="service-category"><i class="bi bi-house-door"></i> Kitchen Appliances</span>
+                        <span class="service-category"><i class="bi bi-ladder"></i> Roofing</span>
+                        <span class="service-category"><i class="bi bi-snow"></i> A/C Repairing</span>
+                        <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator Repairing</span>
+                    </div>
+                </div>
+                <div class="col-md-9 p-4">
+                    <h1 class="mb-4">Plumber Houses Blog</h1>
+                    <div id="blogPosts">
+                        <!-- Hardcoded blog posts -->
+                        <div class="blog-post">
+                            <h2>5 Essential Tools Every Plumber Should Have</h2>
+                            <img src="../template/assets/img/blog/blog-12.jpg" alt="Plumbing Tools" class="img-fluid mb-3">
+                            <p>Every professional plumber needs a reliable set of tools. In this post, we discuss the 5 must-have tools for any plumbing job: pipe wrench, plunger, plumber's tape, basin wrench, and pipe cutter. These tools are essential for tackling a wide range of plumbing issues efficiently and effectively.</p>
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                        
+                        <div class="blog-post">
+                            <h2>How to Unclog a Drain: DIY Plumbing Tips</h2>
+                            <img src="../template/assets/img/blog/blog-13.jpg" alt="Unclogging a Drain" class="img-fluid mb-3">
+                            <p>Dealing with a clogged drain? Before calling a professional, try these simple DIY methods to clear your pipes. We cover techniques using a plunger, baking soda and vinegar, boiling water, and a plumber's snake. Learn how to tackle common clogs and when it's time to call in the experts.</p>
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                        
+                        <div class="blog-post">
+                            <h2>The Importance of Regular Plumbing Maintenance</h2>
+                            <img src="../template/assets/img/blog/blog-15.jpg" alt="Plumbing Maintenance" class="img-fluid mb-3">
+                            <p>Prevent costly repairs and extend the life of your plumbing system with these essential maintenance tips. Learn about regular inspections, fixing leaks promptly, proper drain care, and the benefits of professional maintenance. Discover how a little prevention can save you from major plumbing disasters.</p>
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Plumber Houses. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- Location Modal -->
     <div id="locationModal" class="modal">
@@ -262,41 +345,6 @@
                 this.classList.toggle('active');
             });
         });
-
-        const blogPosts = [
-            {
-                title: "5 Essential Tools Every Plumber Should Have",
-                content: "Every professional plumber needs a reliable set of tools. In this post, we discuss the 5 must-have tools for any plumbing job...",
-                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
-            },
-            {
-                title: "How to Unclog a Drain: DIY Plumbing Tips",
-                content: "Dealing with a clogged drain? Before calling a professional, try these simple DIY methods to clear your pipes...",
-                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
-            },
-            {
-                title: "The Importance of Regular Plumbing Maintenance",
-                content: "Prevent costly repairs and extend the life of your plumbing system with these essential maintenance tips...",
-                image: "../template/assets/img/portfolio/side-view-man-working-as-plumber"
-            }
-        ];
-
-        function createBlogPosts() {
-            const blogPostsContainer = document.getElementById('blogPosts');
-            blogPosts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.className = 'blog-post';
-                postElement.innerHTML = `
-                    <h2>${post.title}</h2>
-                    <img src="${post.image}" alt="${post.title}" class="img-fluid mb-3">
-                    <p>${post.content}</p>
-                    <a href="#" class="btn btn-outline-success">Read More</a>
-                `;
-                blogPostsContainer.appendChild(postElement);
-            });
-        }
-
-        createBlogPosts();
     </script>
 </body>
 </html>
