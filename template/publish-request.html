@@ -11,11 +11,12 @@
             background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             color: #333;
         }
-        .container {
+        .main-container {
             background-color: white;
             border-radius: 10px;
             padding: 20px;
-            margin-top: 50px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .btn-success {
@@ -40,10 +41,46 @@
         .service-option.selected {
             border: 2px solid #4caf50;
         }
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <h1 class="h4 mb-0">Plumber Houses</h1>
+                </div>
+                <div class="col-md-9">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-container">
         <h1 class="mb-4"><i class="bi bi-plus-circle-fill"></i> Publish a Request</h1>
         
         <!-- Service Options -->
@@ -51,7 +88,7 @@
             <h2 class="mb-3">Select a Service</h2>
             <div class="col-md-4 mb-3">
                 <div class="card service-option" data-service="plumbing">
-                    <img src="https://via.placeholder.com/300x200.png?text=Plumbing" class="card-img-top" alt="Plumbing">
+                    <img src="../template/assets/img/service/newservice-1-4.png" class="card-img-top" alt="Plumbing">
                     <div class="card-body">
                         <h5 class="card-title">Plumbing</h5>
                     </div>
@@ -59,7 +96,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <div class="card service-option" data-service="electrical">
-                    <img src="https://via.placeholder.com/300x200.png?text=Electrical" class="card-img-top" alt="Electrical">
+                    <img src="../template/assets/img/service/newservice-1-3.png" class="card-img-top" alt="Electrical">
                     <div class="card-body">
                         <h5 class="card-title">Electrical</h5>
                     </div>
@@ -67,7 +104,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <div class="card service-option" data-service="carpentry">
-                    <img src="https://via.placeholder.com/300x200.png?text=Carpentry" class="card-img-top" alt="Carpentry">
+                    <img src="../template/assets/img/service/newservice-1-1.png" class="card-img-top" alt="Carpentry">
                     <div class="card-body">
                         <h5 class="card-title">Carpentry</h5>
                     </div>
@@ -95,29 +132,35 @@
             <div class="mb-3">
                 <label class="form-label">Images</label>
                 <div class="row">
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="frontView" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="frontView" accept="image/*" data-preview="frontViewPreview">
                         <small class="form-text text-muted">Front View</small>
+                        <div class="image-preview" id="frontViewPreview"></div>
                     </div>
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="backView" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="backView" accept="image/*" data-preview="backViewPreview">
                         <small class="form-text text-muted">Back View</small>
+                        <div class="image-preview" id="backViewPreview"></div>
                     </div>
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="sideViewRight" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="sideViewRight" accept="image/*" data-preview="sideViewRightPreview">
                         <small class="form-text text-muted">Side View - Right</small>
+                        <div class="image-preview" id="sideViewRightPreview"></div>
                     </div>
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="sideViewLeft" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="sideViewLeft" accept="image/*" data-preview="sideViewLeftPreview">
                         <small class="form-text text-muted">Side View - Left</small>
+                        <div class="image-preview" id="sideViewLeftPreview"></div>
                     </div>
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="topView" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="topView" accept="image/*" data-preview="topViewPreview">
                         <small class="form-text text-muted">Top View</small>
+                        <div class="image-preview" id="topViewPreview"></div>
                     </div>
-                    <div class="col-md-4 mb-2">
-                        <input type="file" class="form-control" id="bottomView" accept="image/*">
+                    <div class="col-md-4 mb-3">
+                        <input type="file" class="form-control image-input" id="bottomView" accept="image/*" data-preview="bottomViewPreview">
                         <small class="form-text text-muted">Bottom View</small>
+                        <div class="image-preview" id="bottomViewPreview"></div>
                     </div>
                 </div>
             </div>
@@ -129,6 +172,40 @@
         </form>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Providing top-notch plumbing services since 1990. We're committed to excellence in every job we take on.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Services</a></li>
+                        <li><a href="#" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <address>
+                        123 Plumber St.<br>
+                        Pipetown, PT 12345<br>
+                        Phone: (123) 456-7890<br>
+                        Email: info@plumberhouses.com
+                    </address>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Plumber Houses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Success Modal -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -138,7 +215,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="https://media.giphy.com/media/YThEwVTNDlz7S/giphy.gif" alt="Success" class="img-fluid mb-3">
+                    <img src="https://www.icegif.com/wp-content/uploads/2023/08/icegif-727.gif" alt="Success" class="img-fluid mb-2">
                     <h4>Successfully submitted!</h4>
                 </div>
                 <div class="modal-footer">
@@ -156,6 +233,7 @@
             const homeServiceForm = document.getElementById('homeServiceForm');
             const successModal = new bootstrap.Modal(document.getElementById('successModal'));
             const viewRequestBtn = document.getElementById('viewRequestBtn');
+            const imageInputs = document.querySelectorAll('.image-input');
 
             serviceOptions.forEach(option => {
                 option.addEventListener('click', function() {
@@ -173,6 +251,24 @@
 
             viewRequestBtn.addEventListener('click', function() {
                 window.location.href = 'requests.html';
+            });
+
+            imageInputs.forEach(input => {
+                input.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    const previewId = this.getAttribute('data-preview');
+                    const preview = document.getElementById(previewId);
+
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            preview.style.backgroundImage = `url('${e.target.result}')`;
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        preview.style.backgroundImage = 'none';
+                    }
+                });
             });
         });
     </script>
