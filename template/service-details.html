@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Details</title>
+    <title>Service Details | Fixter</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
@@ -13,10 +14,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            font-family: 'Arial', sans-serif;
         }
         .header {
-            background-color: #66bb6a;
+            background-color: #4CAF50;
             padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .logo-bl img {
             max-height: 50px;
@@ -34,114 +37,91 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover {
+            color: #E8F5E9;
         }
         .main-content {
             flex-grow: 1;
+            padding: 30px 0;
         }
         .sidebar {
-            height: 274vh;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         .footer {
-            background-color: #66bb6a;
+            background-color: #4CAF50;
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
             margin-top: auto;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .district-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .district-list li {
-            cursor: pointer;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #a5d6a7;
-            border-radius: 5px;
+        .district-list li, .city-list li {
             transition: all 0.3s ease;
         }
-        .district-list li:hover {
-            background-color: #81c784;
-        }
-        .city-list {
-            display: none;
-            list-style-type: none;
-            padding-left: 20px;
-        }
-        .city-list li {
-            cursor: pointer;
-            padding: 5px;
-            margin: 2px 0;
-            background-color: #c8e6c9;
-            border-radius: 3px;
-        }
-        .city-list li:hover {
-            background-color: #a5d6a7;
+        .district-list li:hover, .city-list li:hover {
+            transform: translateX(5px);
         }
         .blog-post {
             background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
         .blog-post:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
         .service-category {
-            cursor: pointer;
-            padding: 5px 10px;
-            margin: 5px;
-            background-color: #c8e6c9;
-            border-radius: 20px;
+            padding: 8px 15px;
+            margin: 8px;
+            background-color: #A5D6A7;
+            border-radius: 25px;
             display: inline-block;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .service-category:hover {
-            background-color: #a5d6a7;
+            background-color: #81C784;
+            transform: scale(1.05);
         }
         .service-category.active {
-            background-color: #66bb6a;
+            background-color: #4CAF50;
             color: white;
+        }
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        .btn-success:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+        .btn-outline-success {
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        .btn-outline-success:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #adModal .modal-content {
+            padding: 0;
+            overflow: hidden;
+        }
+        #adModal img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -150,16 +130,16 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-3">
-                    <a href="index.html" class="logo-bl"><img src="assets/img/logo/11.png" alt="logo-img"></a>
+                    <a href="index.html" class="logo-bl"><img src="../template/assets/img/logo/11.png" alt="Plumber Houses Logo"></a>
                 </div>
                 <div class="col-md-9">
                     <nav>
                         <ul class="nav-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html">Profile</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+                            <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+                            <li><a href="services.html"><i class="bi bi-tools"></i> Services</a></li>
+                            <li><a href="blog.html"><i class="bi bi-person"></i> Profile</a></li>
+                            <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -168,11 +148,11 @@
     </header>
 
     <div class="main-content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-3 sidebar">
+                <div class="col-md-3 sidebar mb-4">
                     <h2 class="mb-4"><i class="bi bi-gear-fill"></i> Service Details</h2>
-                    <button id="selectLocation" class="btn btn-success mb-4"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
+                    <button id="selectLocation" class="btn btn-success mb-4 w-100"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
                     
                     <h4 class="mb-3">Service Categories</h4>
                     <div id="serviceCategories">
@@ -183,27 +163,26 @@
                         <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator Repairing</span>
                     </div>
                 </div>
-                <div class="col-md-9 p-4">
+                <div class="col-md-9">
                     <h1 class="mb-4">Plumber Houses Blog</h1>
                     <div id="blogPosts">
-                        <!-- Hardcoded blog posts -->
                         <div class="blog-post">
                             <h2>5 Essential Tools Every Plumber Should Have</h2>
-                            <img src="../template/assets/img/blog/blog-12.jpg" alt="Plumbing Tools" class="img-fluid mb-3">
+                            <img src="../template/assets/img/blog/blog-12.jpg" alt="Plumbing Tools" class="img-fluid mb-3 rounded">
                             <p>Every professional plumber needs a reliable set of tools. In this post, we discuss the 5 must-have tools for any plumbing job: pipe wrench, plunger, plumber's tape, basin wrench, and pipe cutter. These tools are essential for tackling a wide range of plumbing issues efficiently and effectively.</p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
                         
                         <div class="blog-post">
                             <h2>How to Unclog a Drain: DIY Plumbing Tips</h2>
-                            <img src="../template/assets/img/blog/blog-13.jpg" alt="Unclogging a Drain" class="img-fluid mb-3">
+                            <img src="../template/assets/img/blog/blog-13.jpg" alt="Unclogging a Drain" class="img-fluid mb-3 rounded">
                             <p>Dealing with a clogged drain? Before calling a professional, try these simple DIY methods to clear your pipes. We cover techniques using a plunger, baking soda and vinegar, boiling water, and a plumber's snake. Learn how to tackle common clogs and when it's time to call in the experts.</p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
                         
                         <div class="blog-post">
                             <h2>The Importance of Regular Plumbing Maintenance</h2>
-                            <img src="../template/assets/img/blog/blog-15.jpg" alt="Plumbing Maintenance" class="img-fluid mb-3">
+                            <img src="../template/assets/img/blog/blog-15.jpg" alt="Plumbing Maintenance" class="img-fluid mb-3 rounded">
                             <p>Prevent costly repairs and extend the life of your plumbing system with these essential maintenance tips. Learn about regular inspections, fixing leaks promptly, proper drain care, and the benefits of professional maintenance. Discover how a little prevention can save you from major plumbing disasters.</p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
@@ -215,37 +194,50 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Plumber Houses. All rights reserved.</p>
+            <p>&copy; 2024 Fixter. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Location Modal -->
-    <div id="locationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2><i class="bi bi-pin-map-fill"></i> Select Location</h2>
-            <ul id="districtList" class="district-list">
-                <!-- Districts will be dynamically added here -->
-            </ul>
+    <div id="locationModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-pin-map-fill"></i> Select Location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="districtList" class="district-list list-unstyled">
+                        <!-- Districts will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Ad Modal -->
-    <div id="adModal" class="modal">
-        <div class="modal-content">
-            <h2>Special Offer!</h2>
-            <p>Check out our amazing deals on plumbing services!</p>
-            <button id="closeAdBtn" class="btn btn-success" disabled>Close (3)</button>
+    <div id="adModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <img src="../template/assets/img/ad/ad1.jpeg" alt="Special Offer" id="adImage">
+            </div>
         </div>
     </div>
 
     <!-- Action Modal -->
-    <div id="actionModal" class="modal">
-        <div class="modal-content">
-            <h2>What would you like to do?</h2>
-            <button id="viewProvidersBtn" class="btn btn-success mb-2">View Service Provider List</button>
-            <button id="publishRequestBtn" class="btn btn-outline-success mb-2">Publish a Request</button>
-            <button id="backToLocationBtn" class="btn btn-outline-secondary">Back to Location Selection</button>
+    <div id="actionModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">What would you like to do?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <button id="viewProvidersBtn" class="btn btn-success mb-2 w-100">View Service Provider List</button>
+                    <button id="publishRequestBtn" class="btn btn-outline-success mb-2 w-100">Publish a Request</button>
+                    <button id="backToLocationBtn" class="btn btn-outline-secondary w-100">Back to Location Selection</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -257,43 +249,35 @@
             'Kandy': ['Peradeniya', 'Katugastota', 'Gampola', 'Nawalapitiya', 'Pilimatalawa']
         };
 
-        const locationModal = document.getElementById('locationModal');
-        const adModal = document.getElementById('adModal');
-        const actionModal = document.getElementById('actionModal');
+        const locationModal = new bootstrap.Modal(document.getElementById('locationModal'));
+        const adModal = new bootstrap.Modal(document.getElementById('adModal'));
+        const actionModal = new bootstrap.Modal(document.getElementById('actionModal'));
         const selectLocationBtn = document.getElementById('selectLocation');
-        const closeAdBtn = document.getElementById('closeAdBtn');
         const viewProvidersBtn = document.getElementById('viewProvidersBtn');
         const publishRequestBtn = document.getElementById('publishRequestBtn');
         const backToLocationBtn = document.getElementById('backToLocationBtn');
         const districtList = document.getElementById('districtList');
+        const adImage = document.getElementById('adImage');
 
         selectLocationBtn.onclick = function() {
-            locationModal.style.display = 'block';
+            locationModal.show();
         }
 
         function closeLocationModal() {
-            locationModal.style.display = 'none';
+            locationModal.hide();
             showAdModal();
         }
 
         function showAdModal() {
-            adModal.style.display = 'block';
-            let secondsLeft = 3;
-            closeAdBtn.textContent = `Close (${secondsLeft})`;
-            const timer = setInterval(() => {
-                secondsLeft--;
-                closeAdBtn.textContent = `Close (${secondsLeft})`;
-                if (secondsLeft === 0) {
-                    clearInterval(timer);
-                    closeAdBtn.disabled = false;
-                    closeAdBtn.textContent = 'Close';
-                }
-            }, 1000);
+            adModal.show();
+            setTimeout(() => {
+                adModal.hide();
+                actionModal.show();
+            }, 3000);
         }
 
-        closeAdBtn.onclick = function() {
-            adModal.style.display = 'none';
-            actionModal.style.display = 'block';
+        adImage.onclick = function() {
+            window.open('https://toktickbomb.io/?partner=197603_2315852', '_blank');
         }
 
         viewProvidersBtn.onclick = function() {
@@ -305,8 +289,8 @@
         }
 
         backToLocationBtn.onclick = function() {
-            actionModal.style.display = 'none';
-            locationModal.style.display = 'block';
+            actionModal.hide();
+            locationModal.show();
         }
 
         function createDistrictList() {
@@ -319,7 +303,7 @@
                     let cityList = this.querySelector('.city-list');
                     if (!cityList) {
                         cityList = document.createElement('ul');
-                        cityList.className = 'city-list';
+                        cityList.className = 'city-list list-unstyled ms-3';
                         locationData[district].forEach(city => {
                             let cityLi = document.createElement('li');
                             cityLi.textContent = city;

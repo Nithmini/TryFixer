@@ -5,76 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Providers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4CAF50;
+            --light-green: #E8F5E9;
+            --dark-green: #2E7D32;
+        }
         body {
-            background-color: #e8f5e9;
+            background-color: #F1F8E9;
         }
         .provider-image {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             object-fit: cover;
             border-radius: 50%;
         }
         .online {
-            color: green;
-            font-weight: bold;
+            color: var(--primary-color);
         }
         .offline {
-            color: red;
-            font-weight: bold;
+            color: #757575;
+        }
+        .logo {
+            max-height: 50px;
+        }
+        .custom-header {
+            background-color: var(--light-green);
+            border-bottom: 1px solid var(--primary-color);
+        }
+        .btn-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+            color: white;
+        }
+        .table {
+            background-color: white;
+        }
+        .table thead {
+            background-color: var(--light-green);
+        }
+        .table-hover tbody tr:hover {
+            background-color: #F1F8E9;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 id="service-providers" class="mb-4">Service Providers</h1>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search providers...">
-            <button class="btn btn-outline-secondary" type="button">Search</button>
+    <header class="custom-header py-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="../template/assets/img/logo/11.png" alt="Logo" class="logo">
+            <a href="index.html" class="btn btn-custom">
+                <i class="bi bi-house-door-fill me-2"></i>Back to Home
+            </a>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Expertise Area</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr onclick="window.location='service-profile.html?id=1';">
-                    <td><img src="../template/assets/img/testimonial/author-1.jpg" class="provider-image me-2" alt="John Doe"> John Doe</td>
-                    <td>Plumbing</td>
-                    <td>Full-time</td>
-                    <td><span class="online">Online</span></td>
-                </tr>
-                <tr onclick="window.location='service-profile.html?id=2';">
-                    <td><img src="../template/assets/img/testimonial/author-2.jpg" class="provider-image me-2" alt="Jane Smith"> Jane Smith</td>
-                    <td>Electrical Work</td>
-                    <td>Part-time</td>
-                    <td><span class="offline">Offline</span></td>
-                </tr>
-                <tr onclick="window.location='service-profile.html?id=3';">
-                    <td><img src="../template/assets/img/testimonial/author-3.jpg" class="provider-image me-2" alt="Mike Johnson"> Mike Johnson</td>
-                    <td>HVAC Services</td>
-                    <td>Full-time</td>
-                    <td><span class="online">Online</span></td>
-                </tr>
-                <tr onclick="window.location='service-profile.html?id=4';">
-                    <td><img src="../template/assets/img/testimonial/author-4.jpg" class="provider-image me-2" alt="Sarah Brown"> Sarah Brown</td>
-                    <td>Carpentry</td>
-                    <td>Part-time</td>
-                    <td><span class="offline">Offline</span></td>
-                </tr>
-                <tr onclick="window.location='service-profile.html?id=5';">
-                    <td><img src="../template/assets/img/testimonial/author-1.jpg" class="provider-image me-2" alt="David Lee"> David Lee</td>
-                    <td>Painting</td>
-                    <td>Full-time</td>
-                    <td><span class="online">Online</span></td>
-                </tr>
-            </tbody>
-        </table>
+    </header>
+
+    <div class="container mt-4">
+        <h1 id="service-providers" class="mb-4 text-center text-success">Service Providers</h1>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text bg-light-green"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover rounded overflow-hidden">
+                <thead class="table-success">
+                    <tr>
+                        <th>Name</th>
+                        <th>Expertise Area</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="redirectToProfile('john-doe')">
+                        <td><img src="../template/assets/img/team/founder.jpg" alt="John Doe" class="provider-image me-2"> John Doe</td>
+                        <td>Plumbing</td>
+                        <td>Full-time</td>
+                        <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
+                    </tr>
+                    <tr onclick="redirectToProfile('jane-smith')">
+                        <td><img src="../template/assets/img/team/team-1.jpg" alt="Jane Smith" class="provider-image me-2"> Jane Smith</td>
+                        <td>Electrical Work</td>
+                        <td>Part-time</td>
+                        <td><span class="offline"><i class="bi bi-circle-fill me-2"></i>Offline</span></td>
+                    </tr>
+                    <tr onclick="redirectToProfile('mike-johnson')">
+                        <td><img src="../template/assets/img/team/team-3.jpg" alt="Mike Johnson" class="provider-image me-2"> Mike Johnson</td>
+                        <td>HVAC Services</td>
+                        <td>Full-time</td>
+                        <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
+                    </tr>
+                    <tr onclick="redirectToProfile('sarah-brown')">
+                        <td><img src="../template/assets/img/team/team-5.jpg" alt="Sarah Brown" class="provider-image me-2"> Sarah Brown</td>
+                        <td>Carpentry</td>
+                        <td>Part-time</td>
+                        <td><span class="offline"><i class="bi bi-circle-fill me-2"></i>Offline</span></td>
+                    </tr>
+                    <tr onclick="redirectToProfile('david-lee')">
+                        <td><img src="../template/assets/img/team/team-2.jpg" alt="David Lee" class="provider-image me-2"> David Lee</td>
+                        <td>Painting</td>
+                        <td>Full-time</td>
+                        <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function redirectToProfile(providerId) {
+            window.location.href = `service-profile.html?id=${providerId}`;
+        }
+    </script>
 </body>
 </html>
