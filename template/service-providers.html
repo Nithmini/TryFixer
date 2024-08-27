@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Providers</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/11.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/backToTop.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/ui-range-slider.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         :root {
             --primary-color: #4CAF50;
@@ -57,14 +73,59 @@
     </style>
 </head>
 <body>
-    <header class="custom-header py-3 mb-4">
-        <div class="container d-flex justify-content-between align-items-center">
-            <img src="../template/assets/img/logo/11.png" alt="Logo" class="logo">
-            <a href="index.html" class="btn btn-custom">
-                <i class="bi bi-house-door-fill me-2"></i>Back to Home
-            </a>
+    <!-- header area start  -->
+    <header class="header1">
+
+        <div id="header-sticky" class="header-main header-main1">
+            <div class="container container-big">
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="header-main-content-wrapper">
+                            <div class="header-main-left header-main-left-header1">
+                                <div class="header-logo header1-logo">
+                                    <a href="home.html" class="logo-bl"><img src="assets/img/logo/11.png" alt="logo-img"></a>
+                                </div>
+                                <div class="main-menu main-menu1 d-none d-xl-block">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="home.html">Home</a>
+                                            </li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li>
+                                                <a href="services.html">Services</a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="blog.html">Profile</a>
+                                            </li> -->
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-main-right header-main-right-header1">
+                                <!-- <a href="javascript:void(0)" class="action-btn cart-btn d-none d-lg-inline-flex action-item-cart"><i
+                              class="fas fa-shopping-basket"></i></a> -->
+                                
+                                <div class="menu-bar d-xl-none">
+                                    <a class="side-toggle" href="javascript:void(0)">
+                                        <div class="bar-icon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </header>
+    <!-- header area end -->
 
     <div class="container mt-4">
         <h1 id="service-providers" class="mb-4 text-center text-success">Service Providers</h1>
@@ -85,32 +146,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="redirectToProfile('john-doe')">
-                        <td><img src="../template/assets/img/team/founder.jpg" alt="John Doe" class="provider-image me-2"> John Doe</td>
+                    <tr onclick="redirectToProfile('Mohomad Haseim')">
+                        <td><img src="../template/assets/img/team/founder.jpg" alt="Mohomad Haseim" class="provider-image me-2"> Mohomad Haseim</td>
                         <td>Plumbing</td>
                         <td>Full-time</td>
                         <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
                     </tr>
-                    <tr onclick="redirectToProfile('jane-smith')">
-                        <td><img src="../template/assets/img/team/team-1.jpg" alt="Jane Smith" class="provider-image me-2"> Jane Smith</td>
+                    <tr onclick="redirectToProfile('Kavindu Kumara')">
+                        <td><img src="../template/assets/img/team/team-1.jpg" alt="Kavindu Kumara" class="provider-image me-2"> Kavindu Kumara</td>
                         <td>Electrical Work</td>
                         <td>Part-time</td>
                         <td><span class="offline"><i class="bi bi-circle-fill me-2"></i>Offline</span></td>
                     </tr>
-                    <tr onclick="redirectToProfile('mike-johnson')">
-                        <td><img src="../template/assets/img/team/team-3.jpg" alt="Mike Johnson" class="provider-image me-2"> Mike Johnson</td>
+                    <tr onclick="redirectToProfile('Sagara Perera')">
+                        <td><img src="../template/assets/img/team/team-3.jpg" alt="Sagara Perera" class="provider-image me-2"> Sagara Perera</td>
                         <td>HVAC Services</td>
                         <td>Full-time</td>
                         <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
                     </tr>
-                    <tr onclick="redirectToProfile('sarah-brown')">
-                        <td><img src="../template/assets/img/team/team-5.jpg" alt="Sarah Brown" class="provider-image me-2"> Sarah Brown</td>
+                    <tr onclick="redirectToProfile('Kanthi Silva')">
+                        <td><img src="../template/assets/img/team/team-5.jpg" alt="Kanthi Silva" class="provider-image me-2"> Kanthi Silva</td>
                         <td>Carpentry</td>
                         <td>Part-time</td>
                         <td><span class="offline"><i class="bi bi-circle-fill me-2"></i>Offline</span></td>
                     </tr>
-                    <tr onclick="redirectToProfile('david-lee')">
-                        <td><img src="../template/assets/img/team/team-2.jpg" alt="David Lee" class="provider-image me-2"> David Lee</td>
+                    <tr onclick="redirectToProfile('Saman Perera')">
+                        <td><img src="../template/assets/img/team/team-2.jpg" alt="Saman Perera" class="provider-image me-2"> Saman Perera/td>
                         <td>Painting</td>
                         <td>Full-time</td>
                         <td><span class="online"><i class="bi bi-circle-fill me-2"></i>Online</span></td>
@@ -119,6 +180,140 @@
             </table>
         </div>
     </div>
+
+    <!-- footer area start  -->
+    <footer data-background=" " class="footer1-bg " style="background:black ">
+        <section class="footer-area footer-area1 footer-area1-bg pt-95 pb-55 ">
+            <!-- <div class="footer-bg-shape ">
+            <img src="assets/img/shape/pattern.png " alt="img not found ">
+        </div> -->
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget1 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>about us</h4>
+                            </div>
+                            <p class="mb-35 ">
+                                We ensure every aspect of your home, from plumbing to roofing, is expertly maintained for a safe and comfortable living environment.
+                            </p>
+                            <div class="footer-support ">
+                                <div class="irc-item support-meta ">
+                                    <div class="irc-item-icon ">
+                                        <i class="fas fa-phone-alt "></i>
+                                    </div>
+                                    <div class="irc-item-content ">
+                                        <p>Emergency Call</p>
+                                        <div class="support-number ">
+                                            <a href="tel:98965963168 ">+94 71684555</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget3 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>our services</h4>
+                            </div>
+                            <ul>
+                                <li><a href="# ">Maintenance</a></li>
+                                <li><a href="# ">Kitchen </a></li>
+                                <li><a href="# ">Cooling</a></li>
+                                <li><a href="# ">Electronics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget4 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>get in touch</h4>
+                            </div>
+                            <div class="footer-contact ">
+                                <ul>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-phone "></i>
+                                            </div>
+                                            <p>
+                                                <a href="tel:+94 71 684 555 "></a>+9471684555</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-envelope-open "></i>
+                                            </div>
+                                            <p>
+                                                <a href="mailto:groupd@gmail.com ">groupd@gmail.com</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-map-marked-alt "></i>
+                                            </div>
+                                            <p>
+                                                <a href="# ">No.65-A, Temple Road, Pitipana, Sri Lanka</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-social ">
+                                <span>Connect:</span>
+                                <div class="social-links ">
+                                    <ul>
+                                        <li>
+                                            <a href="# "><i class="fab fa-twitter "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-behance "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-youtube "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-linkedin "></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="copyright-area copyright1-area " style="background-color: black; ">
+            <div class="container ">
+                <div class="copyright1-inner ">
+                    <div class="row align-items-center ">
+                        <div class="col-lg-3 col-md-4 ">
+                            <!-- <div class="footer-logo ">
+                            <a href="home.html "><img src="assets/img/logo/logo-w.png " alt="img not found "></a>
+                        </div> -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 ">
+                            <div class="copyright-text copyright1-text ">
+                                Copyright & Design By
+                                <a href=" ">@Group D</a> - 2024
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-2 ">
+                            <div class="go-top-btn ">
+                                <a class="go-top " href="# "><i class="fal fa-long-arrow-up "></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end  -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>

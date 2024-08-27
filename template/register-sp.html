@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Service Provider</title>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/11.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
   <style>
@@ -103,16 +104,16 @@
                 <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number" required>
               </div>
               <div class="mb-3">
-                <label for="specialization" class="form-label">Specialization</label>
-                <select class="form-control" id="specialization" required>
-                  <option value="">Select your specialization</option>
-                  <option value="carpentry">Carpentry</option>
-                  <option value="plumbing">Plumbing</option>
-                  <option value="electrical">Electrical</option>
-                  <option value="gardening">Gardening</option>
-                  <option value="painting">Painting</option>
-                  <option value="roofing">Roofing</option>
-                </select>
+                <label for="specialization" class="form-label">Specialization (Multiple Choices Available)</label>
+                <br/>
+                <div class="row">
+                  <div class="col-2"><input type="checkbox"/> <span>Carpentry </span></div>
+                <div class="col-2"><input type="checkbox"/> <span>Plumbing </span></div>
+                <div class="col-2"><input type="checkbox"/> <span>Electrical </span></div>
+                <div class="col-2"><input type="checkbox"/> <span>Gardening </span></div>
+                <div class="col-2"><input type="checkbox"/> <span>Painting </span></div>
+                <div class="col-2"><input type="checkbox"/> <span>Roofing </span></div>
+                </div>
               </div>
               <div class="mb-3">
                 <label for="available-area" class="form-label">Available Areas</label>
@@ -121,9 +122,6 @@
                   <option value="colombo">Colombo</option>
                   <option value="gampaha">Gampaha</option>
                   <option value="kandy">Kandy</option>
-                  <option value="galle">Galle</option>
-                  <option value="matara">Matara</option>
-                  <option value="kurunegala">Kurunegala</option>
                 </select>
               </div>
               <div class="form-check mb-3">
@@ -134,9 +132,14 @@
               </div>
               <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-person-plus-fill me-2"></i>
+                  Register
+                </button>
+
+                <a href="login.html" class="btn btn-primary">
                   <i class="bi bi-box-arrow-in-right me-2"></i>
                   Login
-                </button>
+                </a>
               </div>
             </form>
           </div>

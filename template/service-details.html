@@ -1,123 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Service Details | Fixter</title>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/11.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/backToTop.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/ui-range-slider.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body {
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            background: linear-gradient(200deg, #ffffff, #c8e6c9);
             color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            font-family: 'Arial', sans-serif;
+            font-family: "Arial", sans-serif;
         }
-        .header {
-            background-color: #4CAF50;
+
+        /* .header {
+            background-color: #4caf50;
             padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .logo-bl img {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        } */
+
+        /* .logo-bl img {
             max-height: 50px;
-        }
+        } */
+
         .nav-links {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
+
         .nav-links li {
             display: inline-block;
             margin-right: 20px;
         }
+
         .nav-links li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
+
         .nav-links li a:hover {
-            color: #E8F5E9;
+            color: #e8f5e9;
         }
+
         .main-content {
             flex-grow: 1;
             padding: 30px 0;
         }
+
         .sidebar {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
+
         .footer {
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
             text-align: center;
             padding: 20px 0;
             margin-top: auto;
         }
+
         .modal-content {
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .district-list li, .city-list li {
+
+        .district-list li,
+        .city-list li {
             transition: all 0.3s ease;
         }
-        .district-list li:hover, .city-list li:hover {
+
+        .district-list li:hover,
+        .city-list li:hover {
             transform: translateX(5px);
         }
+
         .blog-post {
             background-color: white;
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
+
         .blog-post:hover {
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
         }
+
         .service-category {
             padding: 8px 15px;
             margin: 8px;
-            background-color: #A5D6A7;
+            background-color: #a5d6a7;
             border-radius: 25px;
             display: inline-block;
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .service-category:hover {
-            background-color: #81C784;
+            background-color: #81c784;
             transform: scale(1.05);
         }
+
         .service-category.active {
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
         }
+
         .btn-success {
-            background-color: #4CAF50;
-            border-color: #4CAF50;
+            background-color: #4caf50;
+            border-color: #4caf50;
         }
+
         .btn-success:hover {
             background-color: #45a049;
             border-color: #45a049;
         }
+
         .btn-outline-success {
-            color: #4CAF50;
-            border-color: #4CAF50;
+            color: #4caf50;
+            border-color: #4caf50;
         }
+
         .btn-outline-success:hover {
-            background-color: #4CAF50;
+            background-color: #4caf50;
             color: white;
         }
+
         #adModal .modal-content {
             padding: 0;
             overflow: hidden;
         }
+
         #adModal img {
             width: 100%;
             height: auto;
@@ -125,42 +166,80 @@
         }
     </style>
 </head>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3">
-                    <a href="index.html" class="logo-bl"><img src="../template/assets/img/logo/11.png" alt="Plumber Houses Logo"></a>
-                </div>
-                <div class="col-md-9">
-                    <nav>
-                        <ul class="nav-links">
-                            <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
-                            <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
-                            <li><a href="services.html"><i class="bi bi-tools"></i> Services</a></li>
-                            <li><a href="blog.html"><i class="bi bi-person"></i> Profile</a></li>
-                            <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
-                        </ul>
-                    </nav>
+    <!-- header area start  -->
+    <header class="header1">
+        <div id="header-sticky" class="header-main header-main1">
+            <div class="container container-big">
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="header-main-content-wrapper">
+                            <div class="header-main-left header-main-left-header1">
+                                <div class="header-logo header1-logo">
+                                    <a href="home.html" class="logo-bl"><img src="assets/img/logo/11.png"
+                                            alt="logo-img" /></a>
+                                </div>
+                                <div class="main-menu main-menu1 d-none d-xl-block">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="home.html">Home</a>
+                                            </li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li>
+                                                <a href="services.html">Services</a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="blog.html">Profile</a>
+                                            </li> -->
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-main-right header-main-right-header1" style="padding-right: 100px">
+                                <!-- <a href="javascript:void(0)" class="action-btn cart-btn d-none d-lg-inline-flex action-item-cart"><i
+                              class="fas fa-shopping-basket"></i></a> -->
+                                <a href="login.html" class="border-btn-rounded d-none d-lg-inline-flex"><i
+                                        class="bi bi-person-circle"></i><span><b>Login</b></span></a>
+                                <div class="menu-bar d-xl-none">
+                                    <a class="side-toggle" href="javascript:void(0)">
+                                        <div class="bar-icon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
+    <!-- header area end -->
 
     <div class="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 sidebar mb-4">
-                    <h2 class="mb-4"><i class="bi bi-gear-fill"></i> Service Details</h2>
-                    <button id="selectLocation" class="btn btn-success mb-4 w-100"><i class="bi bi-geo-alt-fill"></i> Select Location</button>
-                    
+                    <h2 class="mb-4">
+                        <i class="bi bi-gear-fill"></i> Service Details
+                    </h2>
+                    <button id="selectLocation" class="btn btn-success mb-4 w-100">
+                        <i class="bi bi-geo-alt-fill"></i> Select Location
+                    </button>
+
                     <h4 class="mb-3">Service Categories</h4>
                     <div id="serviceCategories">
                         <span class="service-category"><i class="bi bi-tools"></i> Plumbing</span>
                         <span class="service-category"><i class="bi bi-house-door"></i> Kitchen Appliances</span>
                         <span class="service-category"><i class="bi bi-ladder"></i> Roofing</span>
                         <span class="service-category"><i class="bi bi-snow"></i> A/C Repairing</span>
-                        <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator Repairing</span>
+                        <span class="service-category"><i class="bi bi-thermometer-snow"></i> Refrigerator
+                            Repairing</span>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -168,22 +247,43 @@
                     <div id="blogPosts">
                         <div class="blog-post">
                             <h2>5 Essential Tools Every Plumber Should Have</h2>
-                            <img src="../template/assets/img/blog/blog-12.jpg" alt="Plumbing Tools" class="img-fluid mb-3 rounded">
-                            <p>Every professional plumber needs a reliable set of tools. In this post, we discuss the 5 must-have tools for any plumbing job: pipe wrench, plunger, plumber's tape, basin wrench, and pipe cutter. These tools are essential for tackling a wide range of plumbing issues efficiently and effectively.</p>
+                            <img src="../template/assets/img/blog/blog-12.jpg" alt="Plumbing Tools"
+                                class="img-fluid mb-3 rounded" />
+                            <p>
+                                Every professional plumber needs a reliable set of tools. In
+                                this post, we discuss the 5 must-have tools for any plumbing
+                                job: pipe wrench, plunger, plumber's tape, basin wrench, and
+                                pipe cutter. These tools are essential for tackling a wide
+                                range of plumbing issues efficiently and effectively.
+                            </p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
-                        
+
                         <div class="blog-post">
                             <h2>How to Unclog a Drain: DIY Plumbing Tips</h2>
-                            <img src="../template/assets/img/blog/blog-13.jpg" alt="Unclogging a Drain" class="img-fluid mb-3 rounded">
-                            <p>Dealing with a clogged drain? Before calling a professional, try these simple DIY methods to clear your pipes. We cover techniques using a plunger, baking soda and vinegar, boiling water, and a plumber's snake. Learn how to tackle common clogs and when it's time to call in the experts.</p>
+                            <img src="../template/assets/img/blog/blog-13.jpg" alt="Unclogging a Drain"
+                                class="img-fluid mb-3 rounded" />
+                            <p>
+                                Dealing with a clogged drain? Before calling a professional,
+                                try these simple DIY methods to clear your pipes. We cover
+                                techniques using a plunger, baking soda and vinegar, boiling
+                                water, and a plumber's snake. Learn how to tackle common clogs
+                                and when it's time to call in the experts.
+                            </p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
-                        
+
                         <div class="blog-post">
                             <h2>The Importance of Regular Plumbing Maintenance</h2>
-                            <img src="../template/assets/img/blog/blog-15.jpg" alt="Plumbing Maintenance" class="img-fluid mb-3 rounded">
-                            <p>Prevent costly repairs and extend the life of your plumbing system with these essential maintenance tips. Learn about regular inspections, fixing leaks promptly, proper drain care, and the benefits of professional maintenance. Discover how a little prevention can save you from major plumbing disasters.</p>
+                            <img src="../template/assets/img/blog/blog-15.jpg" alt="Plumbing Maintenance"
+                                class="img-fluid mb-3 rounded" />
+                            <p>
+                                Prevent costly repairs and extend the life of your plumbing
+                                system with these essential maintenance tips. Learn about
+                                regular inspections, fixing leaks promptly, proper drain care,
+                                and the benefits of professional maintenance. Discover how a
+                                little prevention can save you from major plumbing disasters.
+                            </p>
                             <a href="#" class="btn btn-outline-success">Read More</a>
                         </div>
                     </div>
@@ -192,18 +292,148 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Fixter. All rights reserved.</p>
+    <!-- footer area start  -->
+    <footer data-background=" " class="footer1-bg " style="background:black ">
+        <section class="footer-area footer-area1 footer-area1-bg pt-95 pb-55 ">
+            <!-- <div class="footer-bg-shape ">
+            <img src="assets/img/shape/pattern.png " alt="img not found ">
+        </div> -->
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget1 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>about us</h4>
+                            </div>
+                            <p class="mb-35 ">
+                                We ensure every aspect of your home, from plumbing to roofing, is expertly maintained for a safe and comfortable living environment.
+                            </p>
+                            <div class="footer-support ">
+                                <div class="irc-item support-meta ">
+                                    <div class="irc-item-icon ">
+                                        <i class="fas fa-phone-alt "></i>
+                                    </div>
+                                    <div class="irc-item-content ">
+                                        <p>Emergency Call</p>
+                                        <div class="support-number ">
+                                            <a href="tel:98965963168 ">+94 71684555</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget3 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>our services</h4>
+                            </div>
+                            <ul>
+                                <li><a href="# ">Maintenance</a></li>
+                                <li><a href="# ">Kitchen </a></li>
+                                <li><a href="# ">Cooling</a></li>
+                                <li><a href="# ">Electronics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+                        <div class="footer-widget footer1-widget footer1-widget4 mb-40 ">
+                            <div class="footer-widget-title ">
+                                <h4>get in touch</h4>
+                            </div>
+                            <div class="footer-contact ">
+                                <ul>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-phone "></i>
+                                            </div>
+                                            <p>
+                                                <a href="tel:+94 71 684 555 "></a>+9471684555</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-envelope-open "></i>
+                                            </div>
+                                            <p>
+                                                <a href="mailto:groupd@gmail.com ">groupd@gmail.com</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-contact ">
+                                            <div class="contact-icon ">
+                                                <i class="fas fa-map-marked-alt "></i>
+                                            </div>
+                                            <p>
+                                                <a href="# ">No.65-A, Temple Road, Pitipana, Sri Lanka</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-social ">
+                                <span>Connect:</span>
+                                <div class="social-links ">
+                                    <ul>
+                                        <li>
+                                            <a href="# "><i class="fab fa-twitter "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-behance "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-youtube "></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="# "><i class="fab fa-linkedin "></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="copyright-area copyright1-area " style="background-color: black; ">
+            <div class="container ">
+                <div class="copyright1-inner ">
+                    <div class="row align-items-center ">
+                        <div class="col-lg-3 col-md-4 ">
+                            <!-- <div class="footer-logo ">
+                            <a href="home.html "><img src="assets/img/logo/logo-w.png " alt="img not found "></a>
+                        </div> -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 ">
+                            <div class="copyright-text copyright1-text ">
+                                Copyright & Design By
+                                <a href=" ">@Group D</a> - 2024
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-2 ">
+                            <div class="go-top-btn ">
+                                <a class="go-top " href="# "><i class="fal fa-long-arrow-up "></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+    <!-- footer area end  -->
 
     <!-- Location Modal -->
     <div id="locationModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-pin-map-fill"></i> Select Location</h5>
+                    <h5 class="modal-title">
+                        <i class="bi bi-pin-map-fill"></i> Select Location
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -219,7 +449,7 @@
     <div id="adModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <img src="../template/assets/img/ad/ad1.jpeg" alt="Special Offer" id="adImage">
+                <img src="../template/assets/img/ad/ad1.jpeg" alt="Special Offer" id="adImage" />
             </div>
         </div>
     </div>
@@ -233,9 +463,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <button id="viewProvidersBtn" class="btn btn-success mb-2 w-100">View Service Provider List</button>
-                    <button id="publishRequestBtn" class="btn btn-outline-success mb-2 w-100">Publish a Request</button>
-                    <button id="backToLocationBtn" class="btn btn-outline-secondary w-100">Back to Location Selection</button>
+                    <button id="viewProvidersBtn" class="btn btn-success mb-2 w-100">
+                        View Service Provider List
+                    </button>
+                    <button id="publishRequestBtn" class="btn btn-outline-success mb-2 w-100">
+                        Publish a Request
+                    </button>
+                    <button id="backToLocationBtn" class="btn btn-outline-secondary w-100">
+                        Back to Location Selection
+                    </button>
                 </div>
             </div>
         </div>
@@ -244,24 +480,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const locationData = {
-            'Colombo': ['Dehiwala', 'Kolonnawa', 'Kotte', 'Maharagama', 'Moratuwa'],
-            'Gampaha': ['Negombo', 'Kadawatha', 'Kelaniya', 'Wattala', 'Ja-Ela'],
-            'Kandy': ['Peradeniya', 'Katugastota', 'Gampola', 'Nawalapitiya', 'Pilimatalawa']
+            Colombo: ["Dehiwala", "Kolonnawa", "Kotte", "Maharagama", "Moratuwa"],
+            Gampaha: ["Negombo", "Kadawatha", "Kelaniya", "Wattala", "Ja-Ela"],
+            Kandy: [
+                "Peradeniya",
+                "Katugastota",
+                "Gampola",
+                "Nawalapitiya",
+                "Pilimatalawa",
+            ],
         };
 
-        const locationModal = new bootstrap.Modal(document.getElementById('locationModal'));
-        const adModal = new bootstrap.Modal(document.getElementById('adModal'));
-        const actionModal = new bootstrap.Modal(document.getElementById('actionModal'));
-        const selectLocationBtn = document.getElementById('selectLocation');
-        const viewProvidersBtn = document.getElementById('viewProvidersBtn');
-        const publishRequestBtn = document.getElementById('publishRequestBtn');
-        const backToLocationBtn = document.getElementById('backToLocationBtn');
-        const districtList = document.getElementById('districtList');
-        const adImage = document.getElementById('adImage');
+        const locationModal = new bootstrap.Modal(
+            document.getElementById("locationModal")
+        );
+        const adModal = new bootstrap.Modal(document.getElementById("adModal"));
+        const actionModal = new bootstrap.Modal(
+            document.getElementById("actionModal")
+        );
+        const selectLocationBtn = document.getElementById("selectLocation");
+        const viewProvidersBtn = document.getElementById("viewProvidersBtn");
+        const publishRequestBtn = document.getElementById("publishRequestBtn");
+        const backToLocationBtn = document.getElementById("backToLocationBtn");
+        const districtList = document.getElementById("districtList");
+        const adImage = document.getElementById("adImage");
 
-        selectLocationBtn.onclick = function() {
+        selectLocationBtn.onclick = function () {
             locationModal.show();
-        }
+        };
 
         function closeLocationModal() {
             locationModal.hide();
@@ -276,38 +522,38 @@
             }, 3000);
         }
 
-        adImage.onclick = function() {
-            window.open('https://toktickbomb.io/?partner=197603_2315852', '_blank');
-        }
+        adImage.onclick = function () {
+            window.open("https://toktickbomb.io/?partner=197603_2315852", "_blank");
+        };
 
-        viewProvidersBtn.onclick = function() {
-            window.location.href = 'service-providers.html';
-        }
+        viewProvidersBtn.onclick = function () {
+            window.location.href = "service-providers.html";
+        };
 
-        publishRequestBtn.onclick = function() {
-            window.location.href = 'publish-request.html';
-        }
+        publishRequestBtn.onclick = function () {
+            window.location.href = "publish-request.html";
+        };
 
-        backToLocationBtn.onclick = function() {
+        backToLocationBtn.onclick = function () {
             actionModal.hide();
             locationModal.show();
-        }
+        };
 
         function createDistrictList() {
-            districtList.innerHTML = '';
+            districtList.innerHTML = "";
             for (let district in locationData) {
-                let li = document.createElement('li');
+                let li = document.createElement("li");
                 li.textContent = district;
-                li.onclick = function() {
-                    this.classList.toggle('active');
-                    let cityList = this.querySelector('.city-list');
+                li.onclick = function () {
+                    this.classList.toggle("active");
+                    let cityList = this.querySelector(".city-list");
                     if (!cityList) {
-                        cityList = document.createElement('ul');
-                        cityList.className = 'city-list list-unstyled ms-3';
-                        locationData[district].forEach(city => {
-                            let cityLi = document.createElement('li');
+                        cityList = document.createElement("ul");
+                        cityList.className = "city-list list-unstyled ms-3";
+                        locationData[district].forEach((city) => {
+                            let cityLi = document.createElement("li");
                             cityLi.textContent = city;
-                            cityLi.onclick = function(e) {
+                            cityLi.onclick = function (e) {
                                 e.stopPropagation();
                                 closeLocationModal();
                             };
@@ -315,7 +561,8 @@
                         });
                         this.appendChild(cityList);
                     }
-                    cityList.style.display = cityList.style.display === 'none' ? 'block' : 'none';
+                    cityList.style.display =
+                        cityList.style.display === "none" ? "block" : "none";
                 };
                 districtList.appendChild(li);
             }
@@ -323,12 +570,13 @@
 
         createDistrictList();
 
-        const serviceCategories = document.querySelectorAll('.service-category');
-        serviceCategories.forEach(category => {
-            category.addEventListener('click', function() {
-                this.classList.toggle('active');
+        const serviceCategories = document.querySelectorAll(".service-category");
+        serviceCategories.forEach((category) => {
+            category.addEventListener("click", function () {
+                this.classList.toggle("active");
             });
         });
     </script>
 </body>
+
 </html>
