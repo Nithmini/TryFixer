@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,36 +29,44 @@
             background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             color: #333;
         }
+        
         .main-container {
             background-color: white;
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
         .btn-success {
             background-color: #66bb6a;
             border-color: #66bb6a;
         }
+        
         .btn-success:hover {
             background-color: #4caf50;
             border-color: #4caf50;
         }
+        
         .modal-content {
             background-color: #e8f5e9;
         }
+        
         .service-option {
             cursor: pointer;
             transition: all 0.3s ease;
         }
+        
         .service-option:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        
         .service-option.selected {
             border: 2px solid #4caf50;
         }
+        
         .image-preview {
             width: 100%;
             height: 150px;
@@ -69,6 +78,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- header area start  -->
     <header class="header1">
@@ -103,7 +113,7 @@
                             <div class="header-main-right header-main-right-header1">
                                 <!-- <a href="javascript:void(0)" class="action-btn cart-btn d-none d-lg-inline-flex action-item-cart"><i
                               class="fas fa-shopping-basket"></i></a> -->
-                                
+
                                 <div class="menu-bar d-xl-none">
                                     <a class="side-toggle" href="javascript:void(0)">
                                         <div class="bar-icon">
@@ -126,7 +136,7 @@
 
     <div class="container main-container">
         <h1 class="mb-4"><i class="bi bi-plus-circle-fill"></i> Publish a Request</h1>
-        
+
         <!-- Service Options -->
         <div id="serviceOptions" class="row mb-4">
             <h2 class="mb-3">Select a Service</h2>
@@ -166,7 +176,9 @@
                     <option value="sink">Sink</option>
                     <option value="toilet">Toilet</option>
                     <option value="shower">Shower</option>
-                    <option value="faucet">Faucet</option>
+                    <option value="faucet">AC</option>
+                    <option value="faucet">Laptops</option>
+                    <option value="faucet">Switch Borad</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -384,7 +396,9 @@
                     serviceOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
                     homeServiceForm.style.display = 'block';
-                    homeServiceForm.scrollIntoView({ behavior: 'smooth' });
+                    homeServiceForm.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
 
@@ -417,4 +431,5 @@
         });
     </script>
 </body>
+
 </html>
